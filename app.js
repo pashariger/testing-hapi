@@ -13,7 +13,7 @@ server.connection({
   host: 'localhost',
   port: process.env.PORT || 3000
 })
-s
+
 // register server components. We use swagger to generate service documentation
 server.register([
   Inert,
