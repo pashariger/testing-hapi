@@ -19,8 +19,13 @@ const ProductDatabase = [
 
 Lib.getProducts = function(id) {
   return new Promise((resolve, reject) => {
-    if (id) return resolve(_.find(ProductDatabase, (p) => { return p.id === id }))
-    
+    if (id) {
+      resolve(_.find(ProductDatabase, (p) => {
+        return p.id === id
+      }))
+
+      return
+    }
     resolve(ProductDatabase)
   })
 }
