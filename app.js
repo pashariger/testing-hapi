@@ -5,7 +5,6 @@ const Inert       = require('inert')
 const Vision      = require('vision')
 const HapiSwagger = require('hapi-swagger')
 const Pack        = require('./package.json')
-const Joi         = require('joi')
 const fs          = require('fs')
 const _           = require('lodash')
 
@@ -45,14 +44,14 @@ server.register([
   if (err) throw err
 
   // require routes
-  fs.readdirSync('routes').forEach(function(file){
-    _.each(require('./routes/' + file),function(routes){
+  fs.readdirSync('routes').forEach((file) => {
+    _.each(require('./routes/' + file), (routes) => {
       server.route(routes)
     })
   })
 
   if (process.env.NODE_ENV === 'unit-test') return
-  
+
   server.start((err) => {
     if (err) console.log(err)
     console.log('Server running at:', server.info.uri)
