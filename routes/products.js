@@ -41,7 +41,7 @@ routes.push({
   }
 })
 
-// GET /api/products
+// GET /api/products/{id}
 routes.push({
   method: 'GET',
   path: API_BASE_PATH + "/{id}",
