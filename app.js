@@ -14,6 +14,7 @@ server.connection({
   port: process.env.PORT || 3000
 })
 
+// register server components. We use swagger to generate service documentation
 server.register([
   Inert,
   Vision,
@@ -49,8 +50,6 @@ server.register([
       server.route(routes)
     })
   })
-
-  if (process.env.NODE_ENV === 'unit-test') return
 
   server.start((err) => {
     if (err) console.log(err)

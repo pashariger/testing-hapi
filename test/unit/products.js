@@ -12,10 +12,13 @@ const after     = lab.after
 
 // test-specific requires
 const Promise         = require('promise')
+
+// we require the handlers directly, so we can test the "Lib" functions in isolation
 const ProductHandlers = require('../../handlers/products')
 
 describe('unit tests - products', () => {
   it('should return all products', (done) => {
+    // test lib function
     ProductHandlers.lib.getProducts().done(function(products) {
       done()
     }, function(err) {
