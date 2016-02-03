@@ -1,0 +1,40 @@
+{
+  "name": "testing-hapi",
+  "version": "1.0.0",
+  "description": "Example hapi-backed API serivce with testing and CI. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "NODE_ENV=test node node_modules/lab/bin/lab -v -L -C -D -c -t 85",
+    "test-cov-html": "lab -r html -o coverage.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pashariger/testing-hapi.git"
+  },
+  "keywords": [
+    "hapi",
+    "tests",
+    "lab",
+    "ci",
+    "travisci"
+  ],
+  "author": "Pasha Riger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pashariger/testing-hapi/issues"
+  },
+  "homepage": "https://github.com/pashariger/testing-hapi#readme",
+  "dependencies": {
+    "hapi": "^13.0.0",
+    "hapi-swagger": "^4.0.0",
+    "inert": "^3.2.0",
+    "joi": "^7.2.3",
+    "promise": "^7.1.1",
+    "request-promise": "^2.0.0",
+    "vision": "^4.0.1"
+  },
+  "devDependencies": {
+    "code": "^2.1.0",
+    "lab": "^8.2.0"
+  }
+}
