@@ -1,7 +1,7 @@
 {
   "name": "testing-hapi",
   "version": "1.0.0",
-  "description": "Example hapi-backed API serivce with testing and CI. ",
+  "description": "Example hapi-backed API serivce with testing and CI.",
   "main": "app.js",
   "scripts": {
     "test": "NODE_ENV=test node node_modules/lab/bin/lab -v -L -C -D -c -t 85",
