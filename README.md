@@ -28,5 +28,6 @@ Playing around with testing a hapi backed service. This includes:
 
 ### TODO
   * add stubbing framework to imitate real external service calls.
-  * use server.inject instead of whatever is going on right now for functional tests
-  * Figure out an easy way to test multiple hapi services together, in a microservice environment
+  * use server.inject instead of whatever is going on right now for functional tests. Try `shot`.
+  * Figure out an easy way to test multiple hapi services together, in a microservice environment.
+  * Integrate `boom` for API error responses.
