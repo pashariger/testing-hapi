@@ -1,12 +1,12 @@
 'use strict'
 
-const Joi 			= require('joi')
-const Handlers 		= require('../handlers/products')
-const SCHEMAS 		= require('../lib/schemas')
+const Joi           = require('joi')
+const Handlers      = require('../handlers/products')
+const SCHEMAS       = require('../lib/schemas')
 
 const API_BASE_PATH = '/api/products'
 
-let routes = []
+const routes = []
 
 // GET /api/products
 routes.push({
@@ -15,8 +15,8 @@ routes.push({
   config: {
     auth: false,
     handler: Handlers.handlers.get,
-    description: "get products",
-    notes: "This endpoint allows for the retrieval of products.",
+    description: 'get products',
+    notes: 'This endpoint allows for the retrieval of products.',
     plugins: {
       'hapi-swagger': {
         responses: {
@@ -44,12 +44,12 @@ routes.push({
 // GET /api/products/{id}
 routes.push({
   method: 'GET',
-  path: API_BASE_PATH + "/{id}",
+  path: API_BASE_PATH + '/{id}',
   config: {
     auth: false,
     handler: Handlers.handlers.get,
-    description: "get products",
-    notes: "This endpoint allows for the retrieval of products.",
+    description: 'get product by id',
+    notes: 'This endpoint allows for the retrieval of products.',
     plugins: {
       'hapi-swagger': {
         responses: {
@@ -64,7 +64,7 @@ routes.push({
     tags: ['api'],
     validate: {
       params: {
-      	id: Joi.number().required()
+        id: Joi.number().required()
       }
     },
     response: {

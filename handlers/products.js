@@ -3,23 +3,23 @@
 const Promise = require('promise')
 const _       = require('lodash')
 
-let Handlers = {}
-let Lib = {}
+const Handlers = {}
+const Lib = {}
 
 const ProductDatabase = [
   {
     id: 1,
-    name: "Shirt"
+    name: 'Shirt'
   },
   {
     id: 2,
-    name: "Pants"
+    name: 'Pants'
   }
 ]
 
-Lib.getProducts = function (id) {
-  return new Promise(function(resolve, reject) {
-    if (id) return resolve(_.find(ProductDatabase, function(p){ return p.id === id }))
+Lib.getProducts = function(id) {
+  return new Promise((resolve, reject) => {
+    if (id) return resolve(_.find(ProductDatabase, (p) => { return p.id === id }))
     
     resolve(ProductDatabase)
   })
@@ -29,15 +29,15 @@ Handlers.get = function get(req, reply) {
   //
   // Perform req processing & conversions here.
   //
-  var id = null
+  let id = null
 
   if (req.params.id) id = req.params.id
 
-  Lib.getProducts(id).done(function(products) {
+  Lib.getProducts(id).done((products) => {
     reply({
       result: products
     }).code(200)
-  }, function(err) {
+  }, (err) => {
     reply(err).code(400)
   })
 }
