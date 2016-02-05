@@ -1,6 +1,6 @@
 # testing-hapi
 
-[![Build Status](https://travis-ci.org/pashariger/testing-hapi.svg?branch=master)](https://travis-ci.org/pashariger/testing-hapi)
+[![Build Status](https://travis-ci.org/pashariger/testing-hapi.svg?branch=master)](https://travis-ci.org/pashariger/testing-hapi) [![Code Climate](https://codeclimate.com/github/pashariger/testing-hapi/badges/gpa.svg)](https://codeclimate.com/github/pashariger/testing-hapi)
 
 Playing around with testing a hapi backed service. This includes:
 
