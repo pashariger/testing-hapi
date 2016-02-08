@@ -45,3 +45,22 @@ describe('functional tests - products', () => {
     done()
   })
 })
+
+describe('functional tests - get documentation', () => {
+  it('should return documentation html', (done) => {
+    // make API call to self to test functionality end-to-end
+    server.inject({
+      method: "GET",
+      url: "/"
+    }, (response) => {
+      Code.expect(response.statusCode).to.equal(200)
+      Code.expect(response.result).to.be.a.string()
+      done()
+    })
+  })
+
+  after((done) => {
+    // placeholder to do something post tests
+    done()
+  })
+})

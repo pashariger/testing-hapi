@@ -17,12 +17,16 @@ Playing around with testing a hapi backed service. This includes:
     - Functions containing business logic are defined in isolation from the framework making them testable without a running server
   - Functional Tests (`test/functional/*`)
     - These tests are meant to target the API endpoints, covering functionality end-to-end.
+    - We should try to write these tests in a way that they become easily exportable to run automatically via tools like [New Relic Synthetics](http://newrelic.com/sp/synthetics)
   - ESLint
     - `lab` also includes a linter, which is customized in this repo and executed when tests run. 
   - Code Coverage
     - `lab` analyzes the code and returns the code coverage ratio when running the test. It also points out which lines of code are missing coverage. A nice reminder to write tests for any newly added functionality.
 - Documentation
-  - `hapi-swagger` is configured in `app.js` and generates a very nice html page with an interactive Swagger compatible API. My typical workflow is to write the documentation first (by setting up the hapi routing #2BirdsWith1Stone), then to write the functional tests, then a combination of code and unit tests ala [TDD](http://www.jamesshore.com/Blog/Red-Green-Refactor.html) until I'm satisfied with the results. 
+  - `hapi-swagger` is configured in `app.js` and generates a very nice html page with an interactive Swagger compatible API. 
+  - Once your server is running locally, visit [http://localhost:3000](http://localhost:3000) to check out the docs.
+  - My typical workflow is to write the documentation first (by setting up the hapi routing #2BirdsWith1Stone), then to write the functional tests, then a combination of code and unit tests ala [TDD](http://www.jamesshore.com/Blog/Red-Green-Refactor.html) until I'm satisfied with the results. 
+
 - CI
   - This repo also integrates [TravisCI](https://travis-ci.org/), which runs the tests defined above on every pull request, blocking a merge if the test does not pass. Not very useful for a one person project, but crucial when a team of developers is involved.
 
