@@ -14,45 +14,48 @@ const expect      = Code.expect
 const Promise     = require('promise')
 const request     = require('request-promise')
 
-const API_BASE_PATH = 'http://localhost:' + (process.env.PORT || 3000)
+const server = require('../../app.js')
 
 // tests
 describe('functional tests - products', () => {
-
-  before((done) => {
-    // start the server and set env before running tests.
-    require('../../app')
-
-    // wait a bit for server to start
-    setTimeout(function(){
-      done()
-    },500)
-  })
-
   it('should get products', (done) => {
     // make API call to self to test functionality end-to-end
-    request({
-      method: 'GET',
-      uri: API_BASE_PATH + '/api/products',
-      json: true,
-      timeout: 3000
-    }).then(function(body) {
+    server.inject({
+      method: "GET",
+      url: "/api/products"
+    }, (response) => {
+      Code.expect(response.statusCode).to.equal(200)
+      Code.expect(response.result.result).to.have.length(2)
       done()
-    }).catch(function(err) {
-      done(err)
     })
   })
 
   it('should get single product', (done) => {
-    request({
-      method: 'GET',
-      uri: API_BASE_PATH + '/api/products/1',
-      json: true,
-      timeout: 3000
-    }).then(function(body) {
+    server.inject({
+      method: "GET",
+      url: "/api/products/1"
+    }, (response) => {
+      Code.expect(response.statusCode).to.equal(200)
       done()
-    }).catch(function(err) {
-      done(err)
+    })
+  })
+
+  after((done) => {
+    // placeholder to do something post tests
+    done()
+  })
+})
+
+describe('functional tests - get documentation', () => {
+  it('should return documentation html', (done) => {
+    // make API call to self to test functionality end-to-end
+    server.inject({
+      method: "GET",
+      url: "/"
+    }, (response) => {
+      Code.expect(response.statusCode).to.equal(200)
+      Code.expect(response.result).to.be.a.string()
+      done()
     })
   })
 
