@@ -1,5 +1,3 @@
-'use strict'
-
 // requires for testing
 const Code      = require('code')
 const expect    = Code.expect

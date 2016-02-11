@@ -16,7 +16,7 @@ routes.push({
     auth: false,
     handler: Handlers.handlers.get,
     description: 'get products',
-    notes: 'This endpoint allows for the retrieval of products.',
+    notes: 'This endpoint allows for the retrieval of products.', 
     plugins: {
       'hapi-swagger': {
         responses: {
