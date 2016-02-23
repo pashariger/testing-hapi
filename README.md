@@ -2,7 +2,14 @@
 
 [![Build Status](https://travis-ci.org/pashariger/testing-hapi.svg?branch=master)](https://travis-ci.org/pashariger/testing-hapi) [![Code Climate](https://codeclimate.com/github/pashariger/testing-hapi/badges/gpa.svg)](https://codeclimate.com/github/pashariger/testing-hapi)
 
-Playing around with testing a hapi backed service. This includes:
+Example Hapi-backed API Server with testing, CI, and Swagger documentation generator.
+
+## How to run
+```sh
+  npm install #install dependencies
+  npm start # start server
+  npm test # run tests
+```
 
 - Notable npms
   - [hapi](https://github.com/hapijs/hapi), [joi](https://github.com/hapijs/joi)
