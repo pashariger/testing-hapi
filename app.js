@@ -33,9 +33,7 @@ server.register([
       sortPaths: 'path-method',
       lang: 'en',
       tags: [
-        { name: 'api' },
-        { name: 'health' },
-        { name: 'lsq' }
+        { name: 'api' }
       ],
       documentationPath: '/',
       securityDefinitions: []
