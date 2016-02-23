@@ -1,5 +1,9 @@
 {
 	"extends": "hapi",
+	"env": {
+		"node": true,
+		"es6": true
+	},
 	"rules": {
 		"semi": [2, "never"],
 		"indent": [2, 2, {"SwitchCase": 1}],
