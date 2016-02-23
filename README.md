@@ -2,7 +2,17 @@
 
 [![Build Status](https://travis-ci.org/pashariger/testing-hapi.svg?branch=master)](https://travis-ci.org/pashariger/testing-hapi) [![Code Climate](https://codeclimate.com/github/pashariger/testing-hapi/badges/gpa.svg)](https://codeclimate.com/github/pashariger/testing-hapi)
 
-Playing around with testing a hapi backed service. This includes:
+Example Hapi-backed API Server with testing, CI, and Swagger documentation generator.
+
+## How to run
+Requires Node v5.2.0+
+```sh
+  npm install #install dependencies
+  npm start # start server
+  npm test # run tests
+```
+
+## Details
 
 - Notable npms
   - [hapi](https://github.com/hapijs/hapi), [joi](https://github.com/hapijs/joi)
@@ -30,7 +40,7 @@ Playing around with testing a hapi backed service. This includes:
 - CI
   - This repo also integrates [TravisCI](https://travis-ci.org/), which runs the tests defined above on every pull request, blocking a merge if the test does not pass. Not very useful for a one person project, but crucial when a team of developers is involved.
 
-### TODO
+## TODO
   * add stubbing framework to imitate real external service calls.
   * Figure out an easy way to test multiple hapi services together, in a microservice environment.
   * Integrate `boom` for API error responses.
