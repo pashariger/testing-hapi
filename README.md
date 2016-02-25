@@ -29,7 +29,7 @@ Requires Node v5.2.0+
     - These tests are meant to target the API endpoints, covering functionality end-to-end.
     - We should try to write these tests in a way that they become easily exportable to run automatically via tools like [New Relic Synthetics](http://newrelic.com/sp/synthetics)
   - ESLint
-    - `lab` also includes a linter, which is customized in this repo and executed when tests run. 
+    - `lab` also includes a linter (eslint by default), which is executed when tests run. The default configuration can be customized via the `.eslintrc.json` file.
   - Code Coverage
     - `lab` analyzes the code and returns the code coverage ratio when running the test. It also points out which lines of code are missing coverage. A nice reminder to write tests for any newly added functionality.
 - Documentation
