@@ -26,16 +26,15 @@
   },
   "homepage": "https://github.com/pashariger/testing-hapi#readme",
   "dependencies": {
-    "hapi": "^13.0.0",
-    "hapi-swagger": "^4.0.0",
-    "inert": "^3.2.0",
-    "joi": "^7.2.3",
+    "hapi": "^14.1.0",
+    "hapi-swagger": "^6.2.1",
+    "inert": "^4.0.1",
+    "joi": "^9.0.4",
     "promise": "^7.1.1",
-    "request-promise": "^2.0.0",
-    "vision": "^4.0.1"
+    "vision": "^4.1.0"
   },
   "devDependencies": {
-    "code": "^2.1.0",
-    "lab": "^8.2.0"
+    "code": "^3.0.1",
+    "lab": "^10.9.0"
   }
 }
