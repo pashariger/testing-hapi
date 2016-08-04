@@ -4,6 +4,8 @@
 
 Example Hapi-backed API Server with testing, CI, and Swagger documentation generator.
 
+Updated and tested with latest hapi packages as of 8/4/2016.
+
 ## How to run
 Requires Node v5.2.0+
 ```sh
