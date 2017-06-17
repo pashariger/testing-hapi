@@ -43,6 +43,7 @@ Requires Node v5.2.0+
   - This repo also integrates [TravisCI](https://travis-ci.org/), which runs the tests defined above on every pull request, blocking a merge if the test does not pass. Not very useful for a one person project, but crucial when a team of developers is involved.
 
 ## TODO
-  * add stubbing framework to imitate real external service calls.
+  * add stubbing framework to imitate external service calls.
   * Figure out an easy way to test multiple hapi services together, in a microservice environment.
   * Integrate `boom` for API error responses.
+  * Add example for testing hapi route validation (6/17/2017) 
