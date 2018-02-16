@@ -15,30 +15,18 @@ const ProductHandlers = require('../../handlers/products');
 
 describe('unit tests - products', () => {
 
-    it('should return all products', (done) => {
+    it('should return all products', async () => {
 
         // test lib function
-        ProductHandlers.lib.getProducts().done((products) => {
+        const result = await ProductHandlers.lib.getProducts();
 
-            expect(products).to.be.an.array().and.have.length(2);
-
-            done();
-        }, (err) => {
-
-            done(err);
-        });
+        expect(result).to.be.an.array().and.have.length(2);
     });
 
-    it('should return single product', (done) => {
+    it('should return single product', async () => {
 
-        ProductHandlers.lib.getProducts(1).done((product) => {
+        const result = await ProductHandlers.lib.getProducts(1);
 
-            expect(product).to.be.an.object();
-
-            done();
-        }, (err) => {
-
-            done(err);
-        });
+        expect(result).to.be.an.object();
     });
 });

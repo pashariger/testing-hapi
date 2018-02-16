@@ -17,58 +17,68 @@ const Server = require('../../app.js');
 // tests
 describe('functional tests - products', () => {
 
-    it('should get products', (done) => {
+    it('should get products', async () => {
 
         // make API call to self to test functionality end-to-end
-        Server.inject({
+        const response = await Server.inject({
             method: 'GET',
             url: '/api/products'
-        }, (response) => {
-
-            expect(response.statusCode).to.equal(200);
-            expect(response.result.result).to.have.length(2);
-            done();
         });
+
+        expect(response.statusCode).to.equal(200);
+        expect(response.result.result).to.have.length(2);
     });
 
-    it('should get single product', (done) => {
+    it('should get single product', async () => {
 
-        Server.inject({
+        const response = await Server.inject({
             method: 'GET',
             url: '/api/products/1'
-        }, (response) => {
-
-            expect(response.statusCode).to.equal(200);
-            done();
         });
+
+        expect(response.statusCode).to.equal(200);
     });
 
-    after((done) => {
+    it('should return error for invalid id', async () => {
 
+        const response = await Server.inject({
+            method: 'GET',
+            url: '/api/products/5'
+        });
+
+        expect(response.statusCode).to.equal(404);
+    });
+
+    it('should return error for invalid id format (validation test)', async () => {
+
+        const response = await Server.inject({
+            method: 'GET',
+            url: '/api/products/INVLAID_ID_FORMAT'
+        });
+
+        expect(response.statusCode).to.equal(400);
+    });
+
+    after(async () => {
         // placeholder to do something post tests
-        done();
     });
 });
 
 describe('functional tests - get documentation', () => {
 
-    it('should return documentation html', (done) => {
+    it('should return documentation html', async () => {
 
         // make API call to self to test functionality end-to-end
-        Server.inject({
+        const response = await Server.inject({
             method: 'GET',
             url: '/'
-        }, (response) => {
-
-            expect(response.statusCode).to.equal(200);
-            expect(response.result).to.be.a.string();
-            done();
         });
+
+        expect(response.statusCode).to.equal(200);
+        expect(response.result).to.be.a.string();
     });
 
-    after((done) => {
-
+    after(async () => {
         // placeholder to do something post tests
-        done();
     });
 });

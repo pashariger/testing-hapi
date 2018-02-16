@@ -1,6 +1,6 @@
 'use strict';
 
-const Promise = require('promise');
+const Boom = require('boom');
 const _ = require('lodash');
 
 // handlers are exported back for use in hapi routes
@@ -22,25 +22,27 @@ const ProductDatabase = [
 ];
 
 // a unit test-able function
-Lib.getProducts = function getProducts(id) {
+Lib.getProducts = async (id) => {
 
-    return new Promise((resolve, reject) => {
+    if (id) {
+        const product = await _.find(ProductDatabase, (p) => {
 
-        // if id passed, fetch single item
-        if (id) {
-            return resolve(_.find(ProductDatabase, (p) => {
+            return p.id === id;
+        });
 
-                return p.id === id;
-            }));
+        if (!product) {
+            return null;
         }
-        // in other cases fetch all items
-        resolve(ProductDatabase);
-    });
+
+        return product;
+    }
+
+    return ProductDatabase;
 };
 
 // hapi route handler
 // only this function can call reply
-Handlers.get = function get(req, reply) {
+Handlers.get = async (req, reply) => {
     //
     // Perform req processing & conversions for input here.
     //
@@ -50,18 +52,16 @@ Handlers.get = function get(req, reply) {
         id = req.params.id;
     }
 
-    // call business function
-    Lib.getProducts(id).done((products) => {
-        // api success
-        reply({ result: products }).code(200);
-    }, (err) => {
-        // api error
-        reply(err).code(400);
-    });
+    const products = await Lib.getProducts(id);
+
+    if (!products) {
+        return Boom.notFound();
+    }
+
+    return { result: products };
 };
 
 module.exports = {
     handlers: Handlers,
-    // we only export lib for tests
-    lib:      (process.env.NODE_ENV === 'test') ? Lib : null
+    lib: Lib
 };

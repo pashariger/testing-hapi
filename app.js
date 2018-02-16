@@ -8,25 +8,22 @@ const Pack        = require('./package.json');
 const Fs          = require('fs');
 const _           = require('lodash');
 
-const server = new Hapi.Server();
-server.connection({
+const server = new Hapi.Server({
     host: 'localhost',
-    port: process.env.PORT || 3000
+    port: process.env.PORT
 });
 
-// register server components. We use swagger to generate service documentation
-server.register([
-    Inert,
-    Vision,
-    {
-        'register': HapiSwagger,
-        'options': {
+(async () => {
+
+    const HapiSwaggerConfig = {
+        plugin: HapiSwagger,
+        options: {
             info: {
                 title: Pack.name,
                 description: Pack.description,
                 version: Pack.version
             },
-            enableDocumentation: true,
+            swaggerUI: true,
             basePath: '/',
             pathPrefixSize: 2,
             jsonPath: '/docs/swagger.json',
@@ -36,14 +33,16 @@ server.register([
                 { name: 'api' }
             ],
             documentationPath: '/',
-            securityDefinitions: []
+            securityDefinitions: {}
         }
-    }],
-(err) => {
+    };
 
-    if (err) {
-        throw err;
-    }
+    /* register plugins */
+    await server.register([
+        Inert,
+        Vision,
+        HapiSwaggerConfig
+    ]);
 
     // require routes
     Fs.readdirSync('routes').forEach((file) => {
@@ -54,14 +53,9 @@ server.register([
         });
     });
 
-    server.start((err) => {
+    await server.start();
 
-        if (err) {
-            console.log(err);
-        }
-
-        console.log('Server running at:', server.info.uri);
-    });
-});
+    console.log('Server running at:', server.info.uri);
+})();
 
 module.exports = server;
