@@ -1,11 +1,11 @@
 {
   "name": "testing-hapi",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Example hapi-backed API serivce with testing and CI.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "NODE_ENV=test node node_modules/lab/bin/lab -v -L -C -D -c -t 85",
+    "test": "NODE_ENV=test node node_modules/lab/bin/lab -v -L -C -c -t 85",
     "test-cov-html": "lab -r html -o coverage.html"
   },
   "repository": {
@@ -14,6 +14,7 @@
   },
   "keywords": [
     "hapi",
+    "hapi-v17",
     "tests",
     "lab",
     "ci",
@@ -26,15 +27,18 @@
   },
   "homepage": "https://github.com/pashariger/testing-hapi#readme",
   "dependencies": {
-    "hapi": "^14.1.0",
-    "hapi-swagger": "^6.2.1",
-    "inert": "^4.0.1",
-    "joi": "^9.0.4",
-    "promise": "^7.1.1",
-    "vision": "^4.1.0"
+    "boom": "^7.1.1",
+    "hapi": "^17.2.0",
+    "hapi-swagger": "^9.1.1",
+    "inert": "^5.1.0",
+    "joi": "^13.1.2",
+    "promise": "^8.0.1",
+    "vision": "^5.3.1"
   },
   "devDependencies": {
-    "code": "^3.0.1",
-    "lab": "^10.9.0"
+    "code": "^5.2.0",
+    "eslint-config-hapi": "^11.1.0",
+    "eslint-plugin-hapi": "^4.1.0",
+    "lab": "^15.2.2"
   }
 }

@@ -4,14 +4,14 @@
 
 Example Hapi-backed API Server with testing, CI, and Swagger documentation generator.
 
-Updated and tested with latest hapi packages as of 8/4/2016.
+Updated and tested with latest hapi packages as of 1/16/2018.
 
 ## How to run
-Requires Node v5.2.0+
+Requires Node v8.9.0+
 ```sh
-  npm install #install dependencies
-  npm start # start server
-  npm test # run tests
+  yarn install #install dependencies
+  yarn start # start server
+  yarn test # run tests
 ```
 
 ## Details
@@ -35,9 +35,9 @@ Requires Node v5.2.0+
   - Code Coverage
     - `lab` analyzes the code and returns the code coverage ratio when running the test. It also points out which lines of code are missing coverage. A nice reminder to write tests for any newly added functionality.
 - Documentation
-  - `hapi-swagger` is configured in `app.js` and generates a very nice html page with an interactive Swagger compatible API. 
+  - `hapi-swagger` is configured in `app.js` and generates a very nice html page with an interactive Swagger compatible API.
   - Once your server is running locally, visit [http://localhost:3000](http://localhost:3000) to check out the docs.
-  - My typical workflow is to write the documentation first (by setting up the hapi routing #2BirdsWith1Stone), then to write the functional tests, then a combination of code and unit tests ala [TDD](http://www.jamesshore.com/Blog/Red-Green-Refactor.html) until I'm satisfied with the results. 
+  - My typical workflow is to write the documentation first (by setting up the hapi routing #2BirdsWith1Stone), then to write the functional tests, then a combination of code and unit tests ala [TDD](http://www.jamesshore.com/Blog/Red-Green-Refactor.html) until I'm satisfied with the results.
 
 - CI
   - This repo also integrates [TravisCI](https://travis-ci.org/), which runs the tests defined above on every pull request, blocking a merge if the test does not pass. Not very useful for a one person project, but crucial when a team of developers is involved.
@@ -45,5 +45,3 @@ Requires Node v5.2.0+
 ## TODO
   * add stubbing framework to imitate external service calls.
   * Figure out an easy way to test multiple hapi services together, in a microservice environment.
-  * Integrate `boom` for API error responses.
-  * Add example for testing hapi route validation (6/17/2017) 
