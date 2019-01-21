@@ -19,7 +19,7 @@ Requires Node v8.9.0+
 - Notable npms
   - [hapi](https://github.com/hapijs/hapi), [joi](https://github.com/hapijs/joi)
     - `hapi` is a popular web/services nodejs framework. It is strict about routing and validation out of the box and has a mature plugin/extension system. I've used `express` for a long time, but since trying `hapi`, I haven't really looked back. On the surface the two frameworks look similar. In my experience though, I found that `hapi` managed to scale much better with increasing complexity and made it easier to test, debug, and write better code.
-    - `joi` is an awesome schema/object definition and validation library. This project uses it enfoce API input/output validation and generate documentation.
+    - `joi` is an awesome schema/object definition and validation library. This project uses it to enforce API input/output validation and generate documentation.
   - [hapi-swagger](https://github.com/glennjones/hapi-swagger)
     - [Swagger](http://swagger.io/) is an API framework and standard. `hapi-swagger` is a hapi plugin that generates awesome interactive API documentation & UI right from our code API definitions. I gotta say... it's really nice to keep everything in one place.
   - [lab](https://github.com/hapijs/lab)
