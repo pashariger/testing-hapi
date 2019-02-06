@@ -2,8 +2,9 @@
 
 // requires for testing
 const Code      = require('code');
-const expect    = Code.expect;
 const Lab       = require('lab');
+
+const expect    = Code.expect;
 const lab       = exports.lab = Lab.script();
 
 // use some BDD verbage instead of lab default
