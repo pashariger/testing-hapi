@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "NODE_ENV=test node node_modules/lab/bin/lab -v -L -C -c -t 85",
+    "test": "NODE_ENV=test node node_modules/lab/bin/lab -v -L -C -c -t 85 -I 'core,__core-js_shared__'",
     "test-cov-html": "lab -r html -o coverage.html"
   },
   "repository": {
@@ -27,18 +27,18 @@
   },
   "homepage": "https://github.com/pashariger/testing-hapi#readme",
   "dependencies": {
-    "boom": "^7.1.1",
-    "hapi": "^17.2.0",
-    "hapi-swagger": "^9.1.1",
-    "inert": "^5.1.0",
-    "joi": "^13.1.2",
-    "promise": "^8.0.1",
-    "vision": "^5.3.1"
+    "boom": "^7.3.0",
+    "hapi": "^18.1.0",
+    "hapi-swagger": "^9.3.0",
+    "inert": "^5.1.2",
+    "joi": "^14.3.1",
+    "promise": "^8.0.2",
+    "vision": "^5.4.4"
   },
   "devDependencies": {
-    "code": "^5.2.0",
-    "eslint-config-hapi": "^11.1.0",
+    "code": "^5.2.4",
+    "eslint-config-hapi": "^12.0.0",
     "eslint-plugin-hapi": "^4.1.0",
-    "lab": "^15.2.2"
+    "lab": "^18.0.1"
   }
 }

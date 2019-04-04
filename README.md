@@ -7,7 +7,7 @@ Example Hapi-backed API Server with testing, CI, and Swagger documentation gener
 Updated and tested with latest hapi packages as of 1/16/2018.
 
 ## How to run
-Requires Node v8.9.0+
+Requires Node v8.12.0+
 ```sh
   yarn install #install dependencies
   yarn start # start server
